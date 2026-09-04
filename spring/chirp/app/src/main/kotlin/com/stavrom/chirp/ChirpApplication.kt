@@ -1,4 +1,4 @@
-package com.mversan.chirp
+package com.stavrom.chirp
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

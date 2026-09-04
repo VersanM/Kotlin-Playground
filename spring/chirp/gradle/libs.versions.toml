@@ -1,6 +1,6 @@
 [versions]
-kotlin = "2.2.21"
-spring-boot = "4.0.2"
+kotlin = "2.3.21"
+spring-boot = "4.1.1"
 spring-dependency-management = "1.1.7"
 jackson = "2.17.0"
 jakarta = "6.1.0"
