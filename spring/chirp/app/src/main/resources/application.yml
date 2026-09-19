@@ -24,7 +24,6 @@ spring:
         tcpKeepAlive: true
         socketTimeout: 30
         connectTimeout: 10
-
   jpa:
     properties:
       hibernate:
