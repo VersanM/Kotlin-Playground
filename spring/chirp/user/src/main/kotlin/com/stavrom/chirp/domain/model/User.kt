@@ -1,4 +1,4 @@
-package com.stavrom.user.domain.model
+package com.stavrom.chirp.domain.model
 
 import java.util.UUID
 
