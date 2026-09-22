@@ -1,5 +1,6 @@
 package com.stavrom.chirp.api.exception_handling
 
+import com.stavrom.chirp.domain.exception.InvalidTokenException
 import com.stavrom.chirp.domain.exception.UserAlreadyExistsException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -15,6 +16,13 @@ class AuthExceptionHandler {
     @ResponseStatus(HttpStatus.CONFLICT)
     fun onUserAlreadyExists(e: UserAlreadyExistsException) = mapOf(
         "code" to "USER_EXISTS",
+        "message" to e.message
+    )
+
+    @ExceptionHandler(InvalidTokenException::class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    fun onInvalidToken(e: InvalidTokenException) = mapOf(
+        "code" to "INVALID_TOKEN",
         "message" to e.message
     )
 
