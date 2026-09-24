@@ -1,10 +1,6 @@
 package com.stavrom.chirp.api.controllers
 
-import com.stavrom.chirp.api.dto.AuthenticatedUserDto
-import com.stavrom.chirp.api.dto.LoginRequest
-import com.stavrom.chirp.api.dto.RefreshRequest
-import com.stavrom.chirp.api.dto.RegisterRequest
-import com.stavrom.chirp.api.dto.UserDto
+import com.stavrom.chirp.api.dto.*
 import com.stavrom.chirp.api.mappers.toAuthenticatedUserDto
 import com.stavrom.chirp.api.mappers.toUserDto
 import com.stavrom.chirp.service.auth.AuthService
@@ -46,5 +42,13 @@ class AuthController(private val authService: AuthService) {
         return authService
             .refresh(body.refreshToken)
             .toAuthenticatedUserDto()
+    }
+
+    @PostMapping("/logout")
+    fun logout(
+        @RequestBody body: RefreshRequest
+    ) {
+        authService
+            .logout(body.refreshToken)
     }
 }
