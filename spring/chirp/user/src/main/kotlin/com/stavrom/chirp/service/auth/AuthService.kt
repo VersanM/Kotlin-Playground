@@ -89,7 +89,7 @@ class AuthService(
             refreshTokenRepository.findByUserIdAndHashedToken(
                 userId = userId,
                 hashedToken = hashed
-            ) ?: InvalidTokenException("Invalid refresh token")
+            ) ?: throw InvalidTokenException("Invalid refresh token")
 
             refreshTokenRepository.deleteByUserIdAndHashedToken(
                 userId = userId,

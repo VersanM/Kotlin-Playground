@@ -2,6 +2,7 @@ package com.stavrom.chirp.api.controllers
 
 import com.stavrom.chirp.api.dto.AuthenticatedUserDto
 import com.stavrom.chirp.api.dto.LoginRequest
+import com.stavrom.chirp.api.dto.RefreshRequest
 import com.stavrom.chirp.api.dto.RegisterRequest
 import com.stavrom.chirp.api.dto.UserDto
 import com.stavrom.chirp.api.mappers.toAuthenticatedUserDto
@@ -36,5 +37,14 @@ class AuthController(private val authService: AuthService) {
             email = body.email,
             password = body.password
         ).toAuthenticatedUserDto()
+    }
+
+    @PostMapping("/refresh")
+    fun refresh(
+        @RequestBody body: RefreshRequest
+    ): AuthenticatedUserDto {
+        return authService
+            .refresh(body.refreshToken)
+            .toAuthenticatedUserDto()
     }
 }
